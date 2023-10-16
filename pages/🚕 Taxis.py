@@ -68,7 +68,10 @@ else:
         l_month = df[df['pickup_year'].isin(years)].pickup_month.unique().tolist()#.sort()
         l_month.sort()
         
-        months = st.multiselect("Elige un mes", l_month, [1,2,3,4,5,6,7,8,9,10,11,12])
+        if years == [2023]:
+            months = st.multiselect("Elige un mes", l_month, [1,2,3,4,5,6])
+        else:
+            months = st.multiselect("Elige un mes", l_month, [1,2,3,4,5,6,7,8,9,10,11,12])
         
         zones = st.multiselect("Elige una o más zonas: ", zones, [ "Central Park", "Lenox Hill East", "Midtown North", "Midtown South", "East Elmhurst", "West Chelsea/Hudson Yards", "TriBeCa/Civic Center", "West Village", "Sutton Place/Turtle Bay North", "JFK Airport", "Two Bridges/Seward Park", "Meatpacking/West Village West", "Lower East Side", "Little Italy/NoLiTa", "Union Sq", "Manhattan Valley" ])
         
